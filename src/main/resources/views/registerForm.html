@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="container mySpace"></div>
+<div class="alert alert-info" th:if="${exist}">
+    <p class="text text-center"> User already exist!</p>
+</div>
+<form th:action="<{/register}" th:object="{$user}" method="post">
+
+    <div class="form-group col-12 col-lg-6">
+        <label for="name" class="form-control-label">name</label>
+        <input type="text" class="form-control" th:field="*{name}" id="name"/>
+        <div class="text text-danger" tH:if="${fields.hasErrors('name')}" th:errors="*{'name'}"></div>
+    </div>
+
+    <div class="form-group col-12 col-lg-6">
+        <label for="username" class="form-control-label">username</label>
+        <input type="text" class="form-control" th:field="*{username}" id="username"/>
+        <div class="text text-danger" tH:if="${fields.hasErrors('username')}" th:errors="*{'username'}"></div>
+    </div>
+    <div class="form-group col-12 col-lg-6">
+        <label for="password" class="form-control-label">password</label>
+        <input type="text" class="form-control" th:field="*{password}" id="password"/>
+        <div class="text text-danger" tH:if="${fields.hasErrors('password')}" th:errors="*{'password'}"></div>
+    </div>
+    <input type="submit" value="Sign Up" class="btn btn-primary btn-lg"/>
+
+</body>
+
+</html>
