@@ -23,6 +23,7 @@ public class Customer {
     @Column(name="LastName")
     private String lastname;
 
+
     @OneToMany
     @JoinColumn(name = "customer_address_id")
     List<Address> addresses;
